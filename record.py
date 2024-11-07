@@ -9,7 +9,11 @@ import google.generativeai as genai
 from streamlit_option_menu import option_menu
 import requests
 from googletrans import Translator
-from streamlit_lottie import st_lottie  # Make sure to install and import this if using Lottie animations
+from streamlit_lottie import st_lottie
+import time
+import string
+import random
+import requests
 
 languages = [
     'Select Your Language','English','Afrikaans', 'Albanian', 'Amharic', 'Arabic', 'Armenian', 'Azerbaijani', 'Basque', 'Belarusian', 'Bengali', 'Bosnian',
@@ -133,45 +137,84 @@ LANGUAGES = {
 'Zulu': 'zu'
 }
 
-GOOGLE_API_KEY = 'YOUR API KEY'
+GOOGLE_API_KEY = 'AIzaSyAPMmJVLK403FPhDjNCz2f6cbZWVWROGLg'
 genai.configure(api_key=GOOGLE_API_KEY)
 
 model_name = 'gemini-1.0-pro'
 client = genai.GenerativeModel(model_name)
 
-model = SentenceTransformer('all-MiniLM-L6-v2')
-index_name = "index0"
-pinecone_api_key = "YOUR API KEY"
-pc = Pinecone(api_key=pinecone_api_key)
-
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
 
+def generate_random_string(length=10):
+    characters = string.ascii_letters + string.digits
+    random_string = ''.join(random.choice(characters) for _ in range(length))
+    return random_string
 
-def make_chunks(text):
-    return text_splitter.split_text(text)
+def rag_implement_retrive_request(user_id, collection_id, question):
+    url = "http://127.0.0.1:5000/rag_implement_retrive"
+    payload = {
+        "user_id": user_id,
+        "collection_id": collection_id,
+        "question": question
+    }
+    try:
+        response = requests.post(url, json=payload)
+        response.raise_for_status()  # Raise an error if the request failed
+        print("Retrieve Answer Response:", response.json())
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error retrieving answer: {e}")
+        return None
+    
+def process_pdf_request(text, user_id, collection_id):
+    url = "http://127.0.0.1:5000/process_pdf"
+    payload = {
+        "text": text,
+        "user_id": user_id,
+        "collection_id": collection_id
+    }
+    try:
+        response = requests.post(url, json=payload)
+        response.raise_for_status()  # Raise an error if the request failed
+        print("Process PDF Response:", response.json())
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print(f"Error processing PDF: {e}")
+        return None
 
+def generate_chat_response(message):
+    try:
+        response = rag_implement_retrive_request(st.session_state.user_id, st.session_state.collection_id, message)
+        if response is None:
+            return "No related content is found. Ask questions only frorm the uploaded File"
+        else:
+            result = response['response']
+        return result
+    except Exception as e:
+        return "Try again after sometimes"
+    
+def chat_interface():
+    st.subheader("Chat with PDF Report")
 
-def get_context(ques, tot_chunks):
-    index = pc.Index(index_name)
-    ques_emb = model.encode(ques)
-    DB_response = index.query(vector=ques_emb.tolist(), top_k=3, include_values=True)
+    if "chat_history" not in st.session_state:
+        st.session_state.chat_history = []
 
-    if not DB_response or 'matches' not in DB_response:
-        st.error("No matches found in the database response.")
-        return ""
+    user_input = st.text_input("Type your message:", key="user_input")
 
-    st.json(DB_response)
+    if st.button("Send"):
+        if user_input:
+            st.session_state.chat_history.append(("🙋", user_input))
 
-    cont = ""
-    for match in DB_response['matches']:
-        try:
-            chunk_index = int(match['id'][3:]) - 1
-            cont += tot_chunks[chunk_index]
-        except (IndexError, ValueError) as e:
-            st.error(f"Error accessing chunk: {e}")
-            st.error(f"Chunk ID: {match['id']}, Chunk Index: {chunk_index}")
-    return cont
+            response = generate_chat_response(user_input)
+            st.session_state.chat_history.append(("🤖", response))
 
+            # st.rerun()
+
+    for sender, message in st.session_state.chat_history:
+        if sender == "You":
+            st.write(f"**{sender}:** {message}")
+        else:
+            st.write(f"**{sender}:** {message}", key=f"{time.time()}")
 
 def extract_pdf(path):
     reader = PdfReader(path)
@@ -181,120 +224,13 @@ def extract_pdf(path):
     return extracted_text
 
 
-def record():
-    st.markdown("""
-        <style>
-        .stSidebar .sidebar-content {
-            background-color: #f8f9fa;
-        }
-        .stButton>button {
-            width: 100%;
-            margin-top: 10px;
-            background-color: #007bff;
-            color: white;
-        }
-        .stTextInput>div>div>input {
-            width: 100%;
-            padding: 8px;
-        }
-        .spinner-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .spinner {
-            border: 6px solid #f3f3f3;
-            border-top: 6px solid #007bff;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 2s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .home-container {
-            text-align: center;
-            padding: 50px;
-        }
-        .home-container h1 {
-            font-size: 3rem;
-            color: #007bff;
-        }
-        .home-container p {
-            font-size: 1.2rem;
-            color: #555;
-        }
-        </style>
-        """, unsafe_allow_html=True)
-
-    st.title("Report Chat")
-
-    uploaded_files = st.file_uploader("Upload PDF files", type="pdf", accept_multiple_files=True)
-
-    if st.button("Upload and Process"):
-        if uploaded_files:
-            paths = []
-            with tempfile.TemporaryDirectory() as tmpdirname:
-                for file in uploaded_files:
-                    file_path = os.path.join(tmpdirname, file.name)
-                    with open(file_path, "wb") as f:
-                        f.write(file.getbuffer())
-                    paths.append(file_path)
-                    st.success(f"Uploaded file: {file.name}")
-
-                extracted = ""
-                for path in paths:
-                    extracted += extract_pdf(path)
-
-                tot_chunks = make_chunks(extracted)
-                st.session_state.tot5 = tot_chunks
-
-                tot_embeddings = model.encode(tot_chunks)
-                tot_vectors = [{"id": f"vec{i+1}", "values": vec.tolist()} for i, vec in enumerate(tot_embeddings)]
-
-                index_names = pc.list_indexes()
-                if index_name in index_names:
-                    st.info("Index already exists. Skipping creation.")
-                else:
-                    pc.create_index(
-                        name=index_name,
-                        dimension=384,
-                        metric="cosine",
-                        spec=ServerlessSpec(cloud='aws', region='us-east-1')
-                    )
-                    # st.success("Index created successfully.")
-
-                index = pc.Index(index_name)
-                index.upsert(tot_vectors)
-                st.success("Documents processed successfully!")
-
-    query = st.text_input("Enter your query:")
-    if st.button("Get Answer"):
-        try:
-            if query:
-                context = get_context(query, st.session_state.tot5)
-                if context:
-                    input_text = f"Context: {context}, Analyse and understand the above context completely and answer the below query, Query: {query}"
-                    output = client.generate_content(input_text)
-                    response_text = output.text
-                    st.write("Answer:")
-                    st.write(response_text)
-        except Exception as e:
-            print(e)
-
-    if st.button("Clear Database"):
-        with st.spinner('Clearing database...'):
-            try:
-                pc.delete_index(index_name)
-                st.success("Database cleared successfully!")
-            except Exception as e:
-                st.warning(f"Error clearing database: {e}")
-
-
 def scanner():
+    if "user_id" not in st.session_state:
+        st.session_state.user_id = generate_random_string()
+
+    if "collection_ids" not in st.session_state:
+        st.session_state.collection_ids = []
+
     def load_lottieurl(url: str):
         r = requests.get(url)
         if r.status_code != 200:
@@ -316,44 +252,42 @@ def scanner():
 
     with left_column:
         logo = 'https://lottie.host/49cfa049-139a-498a-954f-7985b2b60086/qvfWaOHQJR.json'
-        logo_image = load_lottieurl(logo)  # Ensure load_lottieurl is defined or imported
+        logo_image = load_lottieurl(logo)
         st_lottie(logo_image, width=300, height=100, key='logo')
 
     with right_column:
         st.header("RecordChat")
-
     selected_language = st.selectbox("Select your preferred language:", languages)
     if selected_language!='Select Your Language':
-        selected_language_code = selected_language
+        selected_language_code_rec = selected_language
         pdf_file = st.file_uploader("Upload PDF", type=["pdf"])
-        res=''
+        report_res=''
         if pdf_file is not None:
             try:
-                prefix = 'You are a helpful medical assistant. From the Patient details given below for your reference, you need to generate a detailed report about it and explain the terms in that and other stuff mentioned in the medical report content. You must give only the detailed explanation of the given content in a complete report structure.Give the response in a prettified manner. **Medical report content**: '
                 query = extract_pdf(pdf_file)
-                res = client.generate_content(prefix + query)
-                res = res.text
+                if "pdf_report" not in st.session_state or st.session_state.pdf_report["content"]!=query:
+                    if "collection_id" not in st.session_state:
+                        random_id = generate_random_string()
+                        st.session_state.collection_id = random_id
+                        st.session_state.collection_ids.append(random_id)
+                    prefix = 'You are a helpful medical assistant. From the Patient details given below for your reference, you need to generate a detailed report about it and explain the terms in that and other stuff mentioned in the medical report content. You must give only the detailed explanation of the given content in a complete report structure.Give the response in a prettified manner. **Medical report content**: '
+                    print("generating")
+                    report_res = client.generate_content(prefix + query)
+                    process_pdf_request(query, st.session_state.user_id, st.session_state.collection_id)
+                    print("generated")
+                    report_res = report_res.text
+                    st.session_state.pdf_report = {"content":query, "report":report_res}
+                    st.session_state.chat_history = []
+                else:
+                    report_res = st.session_state.pdf_report["report"]
             except Exception as e:
-                res = 'Error Occured while generating'
+                report_res = 'Error Occured while generating'
                 print(e)
             finally:
-                print(res)
-                st.write(translate("Report Insights", selected_language_code))
-                answer_placeholder=st.empty()
-                answer_placeholder.write(translate(res, selected_language_code))
-                # selected_option = st.selectbox("Select an option",languages )
-                # if(selected_option != 'Select an option' ):
-                #     translated_answer = translate(res,selected_option)
-                #     answer_placeholder.markdown(translated_answer)
+                with st.expander(translate("Report Overview", selected_language_code_rec)):
+                    answer_placeholder=st.empty()
+                    answer_placeholder.write(translate(report_res, selected_language_code_rec))
+                chat_interface()
 
 def report():
-    selected = option_menu(None, ['RecordScan', 'RecordQuery'],
-                           icons=['camera', 'search'],
-                           menu_icon='cast',
-                           default_index=0,
-                           orientation='horizontal')
-
-    if selected == 'RecordScan':
-        scanner()
-    if selected == 'RecordQuery':
-        record()
+    scanner()
