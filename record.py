@@ -1,3 +1,14 @@
+import os
+import tempfile
+import google.generativeai as genai
+from streamlit_option_menu import option_menu
+import requests
+from googletrans import Translator
+from streamlit_lottie import st_lottie
+import time
+import string
+import random
+import requests
 
 languages = [
     'Select Your Language','English','Afrikaans', 'Albanian', 'Amharic', 'Arabic', 'Armenian', 'Azerbaijani', 'Basque', 'Belarusian', 'Bengali', 'Bosnian',
