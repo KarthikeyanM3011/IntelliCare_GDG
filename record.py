@@ -140,3 +140,10 @@ model_name = 'gemini-1.0-pro'
 client = genai.GenerativeModel(model_name)
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+
+def extract_pdf(path):
+    reader = PdfReader(path)
+    extracted_text = ""
+    for page in reader.pages:
+        extracted_text += page.extract_text() or ""
+    return extracted_text
