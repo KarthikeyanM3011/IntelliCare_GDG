@@ -151,6 +151,28 @@ def make_chunks(text):
     return text_splitter.split_text(text)
 
 
+def get_context(ques, tot_chunks):
+    index = pc.Index(index_name)
+    ques_emb = model.encode(ques)
+    DB_response = index.query(vector=ques_emb.tolist(), top_k=3, include_values=True)
+
+    if not DB_response or 'matches' not in DB_response:
+        st.error("No matches found in the database response.")
+        return ""
+
+    st.json(DB_response)
+
+    cont = ""
+    for match in DB_response['matches']:
+        try:
+            chunk_index = int(match['id'][3:]) - 1
+            cont += tot_chunks[chunk_index]
+        except (IndexError, ValueError) as e:
+            st.error(f"Error accessing chunk: {e}")
+            st.error(f"Chunk ID: {match['id']}, Chunk Index: {chunk_index}")
+    return cont
+
+
 def extract_pdf(path):
     reader = PdfReader(path)
     extracted_text = ""
