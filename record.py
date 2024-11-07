@@ -1,6 +1,7 @@
 import os
 import tempfile
 import google.generativeai as genai
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from streamlit_option_menu import option_menu
 import requests
 from googletrans import Translator
@@ -131,3 +132,11 @@ LANGUAGES = {
 'Yoruba': 'yo',
 'Zulu': 'zu'
 }
+
+GOOGLE_API_KEY = 'YOUR GEMINI API'
+genai.configure(api_key=GOOGLE_API_KEY)
+
+model_name = 'gemini-1.0-pro'
+client = genai.GenerativeModel(model_name)
+
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
