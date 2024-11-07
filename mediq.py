@@ -378,8 +378,8 @@ def home():
                 return prompts
             
             def geturl(q):
-                api_key = "AIzaSyBdlN72Py11hJLSiflzzcp9MAZRv0e03pI"
-                search_engine_id = "06e713d09dbd14dbc"
+                api_key = "YOUR GOOGLE SEARCH API"
+                search_engine_id = "YOUR ENGINE ID"
                 query=f'{q} medicine uses,side effects and other details'
                 url = f"https://www.googleapis.com/customsearch/v1?key={api_key}&cx={search_engine_id}&q={query}"
                 response = requests.get(url)
