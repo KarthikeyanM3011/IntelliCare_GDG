@@ -145,32 +145,32 @@ This system transforms traditional data storage in healthcare, enhancing patient
   
 ---
 
-# 🔧⚙️Tech Stack
+# 🔧⚙️ Tech Stack Overview
 
 ---
 
 ## 🖥️ Frontend
-- [Streamlit](https://streamlit.io/) - A framework for creating beautiful, interactive web applications in Python.
-  
+- [🎨 Streamlit](https://streamlit.io/) - A framework for creating beautiful, interactive web applications in Python.
+
 ---
 
 ## 🔧 Backend
-- [Python](https://www.python.org/) - The core programming language used in this project.
-- [Flask](https://flask.palletsprojects.com/) - A lightweight WSGI web application framework used for building the API.
-- [Hugging Face](https://huggingface.co/) - A platform for machine learning models, used for model deployment and inference.
-- [Mistral 7B](https://mistral.ai/) - A powerful language model used to enhance the quality of text processing.
-- [Google FLAN-T5](https://ai.googleblog.com/2022/10/flan-t5-open-sourcing-largest.html) - A language model by Google, fine-tuned to handle natural language tasks.
-- [Sentence Transformers](https://www.sbert.net/) - Used to convert text into embeddings for similarity searches.
-- [Twilio](https://www.twilio.com/) - A communication platform to enable SMS, voice, and video integration.
-- [Keras OCR](https://github.com/faustomorales/keras-ocr) - A library for OCR (Optical Character Recognition) in images and PDFs.
-- [Named Entity Recognition (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition) - A process to identify and classify entities in text data.
+- [🐍 Python](https://www.python.org/) - The core programming language used in this project.
+- [🌐 Flask](https://flask.palletsprojects.com/) - A lightweight WSGI web application framework used for building the API.
+- [🤗 Hugging Face](https://huggingface.co/) - A platform for machine learning models, used for model deployment and inference.
+- [🦾 Mistral 7B](https://mistral.ai/) - A powerful language model used to enhance the quality of text processing.
+- [🧠 Google FLAN-T5](https://ai.googleblog.com/2022/10/flan-t5-open-sourcing-largest.html) - A language model by Google, fine-tuned to handle natural language tasks.
+- [🔍 Sentence Transformers](https://www.sbert.net/) - Used to convert text into embeddings for similarity searches.
+- [📞 Twilio](https://www.twilio.com/) - A communication platform to enable SMS, voice, and video integration.
+- [📝 Keras OCR](https://github.com/faustomorales/keras-ocr) - A library for OCR (Optical Character Recognition) in images and PDFs.
+- [🏷️ Named Entity Recognition (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition) - A process to identify and classify entities in text data.
 
 ---
 
 ## 🗃️ Database
-- [Qdrant](https://qdrant.tech/) - A vector database for storing and searching embeddings, optimized for similarity search.
-- [Firebase](https://firebase.google.com/) - A platform by Google for real-time databases, authentication, and more.
-- [SQLite3](https://www.sqlite.org/index.html) - A lightweight, disk-based database used for local storage.
+- [📊 Qdrant](https://qdrant.tech/) - A vector database for storing and searching embeddings, optimized for similarity search.
+- [🔥 Firebase](https://firebase.google.com/) - A platform by Google for real-time databases, authentication, and more.
+- [💽 SQLite3](https://www.sqlite.org/index.html) - A lightweight, disk-based database used for local storage.
 
 ---
 
