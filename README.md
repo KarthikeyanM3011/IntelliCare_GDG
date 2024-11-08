@@ -190,7 +190,7 @@ This repository contains all the necessary files and directories to run and expe
 #### 2. [**Dataset**](Dataset)
 - **Description:** This folder contains all the data necessary for training, fine-tuning, and testing the machine learning models.
 
-  - **`metadata.csv`**: Contains detailed information related to medicines, which is used for fine-tuning the Google Flan-T5 model.
+  - **`meddata.csv`**: Contains detailed information related to medicines, which is used for fine-tuning the Google Flan-T5 model.
   - **`medicine_details`**: A file containing a list of all medicine names and related details. This data is crucial for model training and data analysis.
   - **`ocr_lower`**: Modified version of the medicine names used for fine-tuning the Named Entity Recognition (NER) model.
 
