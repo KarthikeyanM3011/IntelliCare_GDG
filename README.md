@@ -284,4 +284,4 @@ python qdrant.py
 
 Feel free to adjust or add any other specific setup instructions based on your repository’s configuration.
 
-🌐 **It's all about improving access to quality care**
+# 🌐 **It's all about improving access to quality care**
