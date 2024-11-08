@@ -125,7 +125,7 @@ This system transforms traditional data storage in healthcare, enhancing patient
 
 ---
 
-## **📄 MED-ID Database Architecture**
+## **📄Hash-Based Storage System Architecture**
 ![Med-Id](https://github.com/user-attachments/assets/9aaa987d-f650-4c48-9bdf-f285a578314d)
 
 ### Med-ID Database System Overview
