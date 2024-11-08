@@ -16,7 +16,7 @@ Patients often rely on prescriptions without fully understanding the medication 
 Medical reports are often lengthy, filled with technical terms, and difficult to comprehend for individuals without a medical background. Important information, such as diagnoses, symptoms, and recommended treatments, may be hidden within these complex documents, preventing patients from fully understanding their health status or the steps they need to take for treatment and recovery.
 
 ---
-##  🚀 Solutions
+# 🚀 Solutions
 ---
 ### 💊 **Prescription Scanner: Medication Understanding Simplified**
 
