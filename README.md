@@ -128,6 +128,21 @@ This system transforms traditional data storage in healthcare, enhancing patient
 ## **📄 MED-ID Database Architecture**
 ![Med-Id](https://github.com/user-attachments/assets/9aaa987d-f650-4c48-9bdf-f285a578314d)
 
+### Med-ID Database System Overview
+
+### 👤 User Registration
+- **Profile Setup**: User provides name, mobile number, and email address.
+- **ID Generation**: Backend creates a unique User ID and sends it via SMS for verification.
+
+### 🏥 Hospital Sync
+- **Data Matching**: User details (name, mobile) are matched with hospital records in the backend.
+
+### 📄 Document Upload
+- **Upload Files**: User uploads medical documents, which are stored and linked to their User ID.
+
+### 💾 Database Storage
+- **Secure Storage**: User data and documents are stored in the database, accessible via the mobile number.
+  
 ---
 
 # Tech Stack
@@ -198,6 +213,5 @@ This repository contains all the necessary files and directories to run and expe
 - **Description:** This file handles the operation of secured record uploads and downloads between patients and doctors. Using Web3 technology, it ensures the integrity and privacy of medical records uploaded or downloaded by authorized users.
 
 ---
-
 
 🌐 **It's all about improving access to quality care**
