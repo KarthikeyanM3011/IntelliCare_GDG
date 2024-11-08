@@ -130,8 +130,6 @@ This system transforms traditional data storage in healthcare, enhancing patient
 
 ### Med-ID Database System Overview
 
-### Med-ID Database System Overview
-
 ### 1.👤 User Registration
 - **Profile Setup**: User provides name, mobile number, and email address.
 - **ID Generation**: The backend creates a unique User ID and sends it via SMS for verification.
