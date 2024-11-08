@@ -23,6 +23,7 @@ import base64
 from googletrans import Translator
 from record import *
 from huggingface_hub import InferenceClient
+from store_web3 import *
 
 # def generate_response_chatbot(prompt):
 #     try:
@@ -95,8 +96,8 @@ from huggingface_hub import InferenceClient
 
 # st.markdown(chatbot_icon_html, unsafe_allow_html=True)
 
-selected=option_menu(None,['Home','MediScan','RecordDelve'],
-    icons=['house','book','envelope'],
+selected=option_menu(None,['Home','MediScan','ReportChat', 'MedDB'],
+    icons=['house','book','envelope','database'],
     menu_icon='cast',
     default_index=1,
     orientation='horizontal',
@@ -130,7 +131,7 @@ def img_to_base64(image_path):
         return base64.b64encode(img_file.read()).decode()
 
 # Load and display sidebar image with glowing effect
-img_path = "Intellicare.png"
+img_path = "Images\Intellicare.png"
 img_base64 = img_to_base64(img_path)
 st.sidebar.markdown(
     f'<img src="data:image/png;base64,{img_base64}" class="cover-glow">',
@@ -327,8 +328,8 @@ def home():
         #     with st_lottie_spinner(hello,width=500, height=200,key="main"):
         #         time.sleep(5)
 
-        tokenizer = AutoTokenizer.from_pretrained("K:\model")
-        model = AutoModelForSeq2SeqLM.from_pretrained("K:\model")
+        tokenizer = AutoTokenizer.from_pretrained("Karthikeyan-M3011/medflan-t5-large")
+        model = AutoModelForSeq2SeqLM.from_pretrained("Karthikeyan-M3011/medflan-t5-large")
         def generate_response(query):
             inputs = tokenizer.encode("answer: " + query, return_tensors="pt", max_length=512, truncation=True)
             outputs = model.generate(inputs, max_length=512, num_return_sequences=1)
@@ -378,8 +379,8 @@ def home():
                 return prompts
             
             def geturl(q):
-                api_key = "YOUR GOOGLE SEARCH API"
-                search_engine_id = "YOUR ENGINE ID"
+                api_key = "AIzaSyBdlN72Py11hJLSiflzzcp9MAZRv0e03pI"
+                search_engine_id = "06e713d09dbd14dbc"
                 query=f'{q} medicine uses,side effects and other details'
                 url = f"https://www.googleapis.com/customsearch/v1?key={api_key}&cx={search_engine_id}&q={query}"
                 response = requests.get(url)
@@ -529,7 +530,7 @@ def about_page():
     )
 
     # Architecture Section
-    architecture_img_base64 = img_to_base64("architecture.png")
+    architecture_img_base64 = img_to_base64("Images\architecture.png")
     st.markdown(
         """
         <div style="padding: 20px; margin-bottom: 20px; border-radius: 10px; background-color: #f0f8ff; border-left: 4px solid #0073e6;">
@@ -541,10 +542,10 @@ def about_page():
     image_card(architecture_img_base64)
 
     # Display developer cards in a row
-    member1_img_base64 = img_to_base64("Karthi.jpeg")
-    member2_img_base64 = img_to_base64("Arun.png")
-    member3_img_base64 = img_to_base64("Barath.jpeg")
-    member4_img_base64 = img_to_base64("Loga.jpg")
+    member1_img_base64 = img_to_base64("Images\Karthi.jpeg")
+    member2_img_base64 = img_to_base64("Images\Arun.png")
+    member3_img_base64 = img_to_base64("Images\Barath.jpeg")
+    member4_img_base64 = img_to_base64("Images\Loga.jpg")
 
     member1_card = member_card(member1_img_base64, "Karthikeyan M", "https://www.linkedin.com/in/karthikeyan-m30112004/", "karthikeyanmjnk13579@gmail.com")
     member2_card = member_card(member2_img_base64, "Arun Kumar R", "https://www.linkedin.com/in/arun-kumar-99b841255/", "arun700101@gmail.com")
@@ -564,7 +565,9 @@ def about_page():
 
 if selected=='MediScan':
     home()
-if selected=='RecordDelve':
+if selected=='ReportChat':
     report()
 if selected=='Home':
     about_page()
+if selected=='MedDB':
+    store_meddb()
