@@ -91,7 +91,7 @@ This system transforms traditional data storage in healthcare, enhancing patient
 ---
 
 ## **📄 Report Scanner Architecture**
-![Pres](Images/Report_architechture.png)
+![Repr](Images/Report_architechture.png)
 
 ### Report Scanner - Architecture Overview
 
@@ -124,6 +124,9 @@ This system transforms traditional data storage in healthcare, enhancing patient
    - 📊 **Relevant Information Display**: The system retrieves and displays the most relevant sections of the report, addressing the user's query effectively.
 
 ---
+
+## **📄 Report Scanner Architecture**
+![Repr](![image](https://github.com/user-attachments/assets/90fd2abe-a9c7-44b6-862b-a42c3d420287))
 
 # Tech Stack
 
