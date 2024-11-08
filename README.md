@@ -145,9 +145,7 @@ This system transforms traditional data storage in healthcare, enhancing patient
   
 ---
 
-# Tech Stack
-
-The following technologies power the **Report Scanner** project, each serving a unique purpose to create a robust application.
+# 🔧⚙️Tech Stack
 
 ---
 
