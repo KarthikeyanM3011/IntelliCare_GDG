@@ -14,13 +14,8 @@ Medical reports are often lengthy, filled with technical terms, and difficult to
 
 ---
 
-## 🚀 Solution Components
 
-Here’s the **Solutions** section for your GitHub README with stickers and highlights included:
-
----
-
-## Solutions
+##  🚀 Solutions
 ---
 ### 💊 **Prescription Scanner: Medication Understanding Simplified**
 
@@ -48,9 +43,11 @@ This solution helps patients comprehend their medical condition by breaking down
 
 ## 📊 **Architecture Diagrams**
 
-| **Prescription Scanner** | **Report Scanner** |
-| ------------------------ | ------------------ |
-| ![Prescription Scanner Architecture](images/prescription_scanner_architecture.png) | ![Report Scanner Architecture](images/report_scanner_architecture.png) |
+### **💊 Prescription Scanner Architecture**
+![Pres](Images/Prescription_architechture.png)
+
+### **📄 Report Scanner Architecture**
+![Pres](Images/Report_architechture.png)
 
 ---
 
