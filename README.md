@@ -180,10 +180,10 @@ This repository contains all the necessary files and directories to run and expe
 
 ### **Folders📁📂**
 
-#### 1. [**Image**](Images)
+#### 1. [**Images**](Images)
 - **Description:** This folder contains all images and architecture diagrams related to the project. These images are used for visualizing the workflow, models, and any related concepts to better understand the project's design and functionality.
 
-#### 2. [**Dataset**](Dataset)
+#### 2. [**Datasets**](Datasets)
 - **Description:** This folder contains all the data necessary for training, fine-tuning, and testing the machine learning models.
 
   - **`meddata.csv`**: Contains detailed information related to medicines, which is used for fine-tuning the Google Flan-T5 model.
