@@ -174,13 +174,13 @@ This system transforms traditional data storage in healthcare, enhancing patient
 
 ---
 
-### **Repository Structure**
+### **📂📊Repository Structure**
 
 This repository contains all the necessary files and directories to run and experiment with the various components of the project. Below is a detailed description of the folder and file structure:
 
 ---
 
-### **Folders**
+### **Folders📁📂**
 
 #### 1. [**Image**](Images)
 - **Description:** This folder contains all images and architecture diagrams related to the project. These images are used for visualizing the workflow, models, and any related concepts to better understand the project's design and functionality.
@@ -193,7 +193,7 @@ This repository contains all the necessary files and directories to run and expe
   - **`ocr_lower`**: Modified version of the medicine names used for fine-tuning the Named Entity Recognition (NER) model.
 
 
-### **Files**
+### **Files📄📝**
 
 #### 3. [**`Finetune.ipynb`**](Finetune.ipynb)
 - **Description:** This Jupyter Notebook contains the code to fine-tune the Google Flan-T5 model. It includes data preprocessing, model setup, training loops, and evaluation code for customizing the Flan-T5 model on medicine-related data.
