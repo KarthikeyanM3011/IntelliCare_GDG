@@ -139,6 +139,8 @@ The following technologies power the **Report Scanner** project, each serving a 
 
 ## 🗃️ Database
 - [Qdrant](https://qdrant.tech/) - A vector database for storing and searching embeddings, optimized for similarity search.
+- [Firebase](https://firebase.google.com/) - A platform by Google for real-time databases, authentication, and more.
+- [SQLite3](https://www.sqlite.org/index.html) - A lightweight, disk-based database used for local storage.
 
 ---
 
