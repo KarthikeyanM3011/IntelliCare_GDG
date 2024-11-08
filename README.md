@@ -147,8 +147,6 @@ This system transforms traditional data storage in healthcare, enhancing patient
 
 # 🔧⚙️ Tech Stack Overview
 
----
-
 ## 🖥️ Frontend
 - [🎨 Streamlit](https://streamlit.io/) - A framework for creating beautiful, interactive web applications in Python.
 
