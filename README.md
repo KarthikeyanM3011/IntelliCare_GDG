@@ -161,5 +161,43 @@ The following technologies power the **Report Scanner** project, each serving a 
 
 ---
 
+### **Repository Structure**
+
+This repository contains all the necessary files and directories to run and experiment with the various components of the project. Below is a detailed description of the folder and file structure:
+
+---
+
+### **Folders**
+
+#### 1. [**Image**](Images)
+- **Description:** This folder contains all images and architecture diagrams related to the project. These images are used for visualizing the workflow, models, and any related concepts to better understand the project's design and functionality.
+
+#### 2. [**Dataset**](Dataset)
+- **Description:** This folder contains all the data necessary for training, fine-tuning, and testing the machine learning models.
+
+  - **`metadata.csv`**: Contains detailed information related to medicines, which is used for fine-tuning the Google Flan-T5 model.
+  - **`medicine_details`**: A file containing a list of all medicine names and related details. This data is crucial for model training and data analysis.
+  - **`ocr_lower`**: Modified version of the medicine names used for fine-tuning the Named Entity Recognition (NER) model.
+
+
+### **Files**
+
+#### 3. [**`Finetune.ipynb`**](Finetune.ipynb)
+- **Description:** This Jupyter Notebook contains the code to fine-tune the Google Flan-T5 model. It includes data preprocessing, model setup, training loops, and evaluation code for customizing the Flan-T5 model on medicine-related data.
+
+#### 4. [**`mediq.py`**](mediq.py)
+- **Description:** This Python file contains the logic for navigating various pages of the project, including the home page and prescription scanner functionality. It handles the navigation and page transitions for the web app.
+
+#### 5. [**`qdrant.py`**](qdrant.py)
+- **Description:** This script is responsible for connecting to the Qdrant database for retrieval, storing, and indexing information. It serves as the interface between the machine learning model and the database, ensuring efficient data handling.
+
+#### 6. [**`record.py`**](record.py)
+- **Description:** This Python file handles the working of the report scanner. It also integrates with `qdrant.py` for calling the Qdrant database and utilizes a RAG (retrieval-augmented generation) model to process scanned data and generate responses.
+
+#### 7. [**`store_web3.py`**](store_web3.py)
+- **Description:** This file handles the operation of secured record uploads and downloads between patients and doctors. Using Web3 technology, it ensures the integrity and privacy of medical records uploaded or downloaded by authorized users.
+
+---
+
 
 🌐 **It's all about improving access to quality care**
