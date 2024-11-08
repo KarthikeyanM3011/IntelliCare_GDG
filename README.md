@@ -46,6 +46,20 @@ This solution helps patients comprehend their medical condition by breaking down
 
 ---
 
+###📄 **Blockchain-Based Storage System: Securely Storing Patient Records**
+
+Our Blockchain-Based Storage System ensures that patient medical records are stored securely, immutably, and transparently. This approach leverages blockchain technology to provide a decentralized, tamper-proof, and patient-centric storage solution. Key features include:
+
+-🔒 **Decentralized Storage**: Stores patient data across a distributed network, ensuring that records are protected against data breaches and unauthorized access.
+
+-🛡️ **Immutability**: Guarantees that once data is recorded on the blockchain, it cannot be altered or deleted, providing an accurate and unchangeable history of patient records.
+
+-👤 **Patient-Centric Control**: Empowers patients with control over their records, allowing them to grant access permissions to healthcare providers as needed.
+
+This system transforms traditional data storage in healthcare, enhancing patient privacy and data security, while giving patients more control over their personal health information.
+
+---
+
 ## 📊 **Architecture Diagrams**
 
 ## **💊 Prescription Scanner Architecture**
