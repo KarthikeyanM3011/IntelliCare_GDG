@@ -130,18 +130,20 @@ This system transforms traditional data storage in healthcare, enhancing patient
 
 ### Med-ID Database System Overview
 
-### 👤 User Registration
+### Med-ID Database System Overview
+
+### 1.👤 User Registration
 - **Profile Setup**: User provides name, mobile number, and email address.
-- **ID Generation**: Backend creates a unique User ID and sends it via SMS for verification.
+- **ID Generation**: The backend creates a unique User ID and sends it via SMS for verification.
 
-### 🏥 Hospital Sync
-- **Data Matching**: User details (name, mobile) are matched with hospital records in the backend.
+### 2.🏥 Hospital Sync
+- **Data Matching**: User details (name, mobile) [**Twillo**](https://www.twilio.com/) are matched with hospital records in the backend.
 
-### 📄 Document Upload
-- **Upload Files**: User uploads medical documents, which are stored and linked to their User ID.
+### 3.📄 Document Upload
+- **Upload Files**: The user uploads medical documents stored and linked to their User ID.
 
-### 💾 Database Storage
-- **Secure Storage**: User data and documents are stored in the database, accessible via the mobile number.
+### 4.💾 Database Storage
+- **Secure Storage**: User data and documents are stored in the database [**Firebase**](https://firebase.google.com/), accessible via the mobile number.
   
 ---
 
