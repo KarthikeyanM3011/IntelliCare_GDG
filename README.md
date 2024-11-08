@@ -1,25 +1,48 @@
-# 🌟 **Intellicare: Automated Medical Information Extraction** 🌟
+# Team Name : **Drastic Innovators**
+# **🤖 INTELLICARE: Automated 🩺 Medical Information Extraction and 📑 Patient Query Resolution Using OCR, NER, Fine-Tuned Models, and 🔍 Retrieval-Augmented Generation (RAG)** 
 
 Welcome to **Intellicare** by Team **Drastic Innovators**! Our project aims to enhance healthcare by enabling easy access and understanding of complex medical information through advanced AI models. 🩺💊
 
-## 📢 Project Overview
+## 📢 **Problem Statement**
 
-In today's world, patients often struggle to understand medical information in prescriptions and reports, leading to potential misuse and confusion. Our solution uses cutting-edge technology like **OCR**, **NER**, **custom Large Language Models (LLMs)**, and **Retrieval-Augmented Generation (RAG)** to simplify medical information for better patient outcomes.
+In today's world, many people face significant challenges in understanding the medical information contained in doctor prescriptions and medical reports. These documents, though critical for effective healthcare, are often difficult to interpret due to complex medical jargon and unclear explanations. This lack of clarity can result in various issues, including:
+
+### 💊 **Misuse of Medications**:
+Patients often rely on prescriptions without fully understanding the medication instructions, dosages, or potential side effects. Without proper knowledge, patients might misuse medications, which can lead to ineffective treatment or even adverse health effects.
+### 📄 **Complex Medical Reports**: 
+Medical reports are often lengthy, filled with technical terms, and difficult to comprehend for individuals without a medical background. Important information, such as diagnoses, symptoms, and recommended treatments, may be hidden within these complex documents, preventing patients from fully understanding their health status or the steps they need to take for treatment and recovery.
 
 ---
 
 ## 🚀 Solution Components
 
-### **1. Prescription Scanner** 📄💊
-   - **OCR (Optical Character Recognition):** Converts printed prescriptions to digital text.
-   - **NER (Named Entity Recognition):** Identifies and extracts medication names.
-   - **Custom LLM:** Fine-tuned using medical data, this model provides detailed information on each medication, including dosage, usage, and potential side effects.
+Here’s the **Solutions** section for your GitHub README with stickers and highlights included:
 
-### **2. Report Scanner** 📑
-   - **OCR:** Extracts text from printed medical reports.
-   - **Text Chunking and Embedding:** Embeds and stores text chunks as high-dimensional vectors.
-   - **Vector Database (Qdrant):** Efficient storage and retrieval for quick similarity searches.
-   - **Retrieval-Augmented Generation (RAG):** Uses retrieved data to generate summaries and insights, helping patients understand complex medical reports.
+---
+
+## Solutions
+---
+### 💊 **Prescription Scanner: Medication Understanding Simplified**
+
+Our **Prescription Scanner** project is designed to help patients better understand the medications prescribed to them by leveraging **Generative AI (Gen AI)** techniques, such as:
+
+- 🤖 **Fine-Tuned Model**: A custom fine-tuned model tailored to interpret prescription details accurately.
+- 🧠 **AI-Powered Insights**: The system provides clear, understandable information about the medications, including dosage, potential side effects, and usage instructions.
+  
+This tool empowers patients to make informed decisions, improving their ability to follow treatment plans and reducing the risks of medication misuse or adverse effects. The AI system also ensures that the interpretation is simple and accessible to individuals without a medical background.
+
+---
+
+### 📄 **Report Scanner: Simplifying Medical Report Understanding**
+
+Our **Report Scanner** project leverages cutting-edge technologies to interpret and summarize complex medical reports, making it easier for patients to understand their health status. Key features include:
+
+- 📸 **OCR (Optical Character Recognition)**: Extracts text from medical reports, whether handwritten or typed.
+- 🧑‍⚕️ **Sentence Embedding**: Uses deep learning models to understand the context and extract meaningful insights from medical reports.
+- 📚 **Vector Databases**: Stores extracted information in vectorized form for fast and accurate retrieval.
+- 🔄 **Retrieval-Augmented Generation (RAG)**: Combines the power of retrieval and generative models to provide precise and insightful summaries, including diagnoses, symptoms, treatments, and next steps.
+
+This solution helps patients comprehend their medical condition by breaking down complex medical jargon, ensuring they fully understand their diagnoses, symptoms, and recommended treatments. It empowers patients to take control of their health with clarity.
 
 ---
 
