@@ -4,6 +4,8 @@
 Welcome to **Intellicare** by Team **Drastic Innovators**! Our project aims to enhance healthcare by enabling easy access and understanding of complex medical information through advanced AI models. 🩺💊
 
 ---
+## Here is the full demo with an explanation: [Drastic Innovators Demo 🎥🔍](https://youtu.be/zn_63U3ikqE?si=IFXWwfmtLW1nKM4q)
+---
 ## Here is the PowerPoint presentation link: [Drastic Innovators Presentation 🎤📊](https://www.canva.com/design/DAGFnm_ipec/6W4ataS90Qfzkt6rmyQgIQ/edit?utm_content=DAGFnm_ipec&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 ---
 ## 📢 **Problem Statement**
