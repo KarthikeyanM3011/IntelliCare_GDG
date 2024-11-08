@@ -125,8 +125,10 @@ This system transforms traditional data storage in healthcare, enhancing patient
 
 ---
 
-## **📄 Report Scanner Architecture**
-![Repr](![image](https://github.com/user-attachments/assets/90fd2abe-a9c7-44b6-862b-a42c3d420287))
+## **📄 MED-ID Database Architecture**
+![Med-Id](https://github.com/user-attachments/assets/9aaa987d-f650-4c48-9bdf-f285a578314d)
+
+---
 
 # Tech Stack
 
