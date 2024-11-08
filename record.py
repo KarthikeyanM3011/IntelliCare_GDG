@@ -137,7 +137,7 @@ LANGUAGES = {
 'Zulu': 'zu'
 }
 
-GOOGLE_API_KEY = 'AIzaSyAPMmJVLK403FPhDjNCz2f6cbZWVWROGLg'
+GOOGLE_API_KEY = 'Your_api_key'
 genai.configure(api_key=GOOGLE_API_KEY)
 
 model_name = 'gemini-1.0-pro'
