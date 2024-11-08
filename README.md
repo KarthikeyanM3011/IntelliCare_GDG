@@ -1,5 +1,5 @@
 # Team Name : **Drastic Innovators**
-# **🤖 INTELLICARE ** : *Automated 🩺 Medical Information Extraction and 📑 Patient Query Resolution Using OCR, NER, Fine-Tuned Models, and 🔍 Retrieval-Augmented Generation (RAG)*
+# 🤖 INTELLICARE  : *Automated 🩺 Medical Information Extraction and 📑 Patient Query Resolution Using OCR, NER, Fine-Tuned Models, and 🔍 Retrieval-Augmented Generation (RAG)*
 
 Welcome to **Intellicare** by Team **Drastic Innovators**! Our project aims to enhance healthcare by enabling easy access and understanding of complex medical information through advanced AI models. 🩺💊
 
