@@ -544,10 +544,10 @@ def about_page():
     # image_card(architecture_img_base64)
 
     # Display developer cards in a row
-    member1_img_base64 = img_to_base64("Karthi.jpeg")
-    member2_img_base64 = img_to_base64("Arun.png")
-    member3_img_base64 = img_to_base64("Barath.jpeg")
-    member4_img_base64 = img_to_base64("Loga.jpg")
+    member1_img_base64 = img_to_base64("Images\Karthi.jpeg")
+    member2_img_base64 = img_to_base64("Images\Arun.png")
+    member3_img_base64 = img_to_base64("Images\Barath.jpeg")
+    member4_img_base64 = img_to_base64("Images\Loga.jpg")
 
     member1_card = member_card(member1_img_base64, "Karthikeyan M", "https://www.linkedin.com/in/karthikeyan-m30112004/", "karthikeyanmjnk13579@gmail.com")
     member2_card = member_card(member2_img_base64, "Arun Kumar R", "https://www.linkedin.com/in/arun-kumar-99b841255/", "arun700101@gmail.com")
