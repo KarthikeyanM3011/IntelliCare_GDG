@@ -214,4 +214,74 @@ This repository contains all the necessary files and directories to run and expe
 
 ---
 
+
+### **Steps to Run the Project Locally**
+
+Follow the steps below to set up and run the project on your local machine.
+
+#### 1. Clone the Repository
+
+First, clone the repository using Git:
+
+```bash
+git clone https://github.com/KarthikeyanM3011/IntelliCare_GDG.git
+cd IntelliCare_GDG
+```
+
+#### 2. Install Required Dependencies
+
+Navigate to the project directory and install the required dependencies from the `requirements.txt` file:
+
+```bash
+pip install -r requirements.txt
+```
+
+#### 3. Set Up API Tokens
+
+You need to provide the following API keys and tokens for the project to function properly. You can add these values as global
+
+- **Twilio**:
+  - `TWILIO_AUTH_TOKEN`
+  - `TWILIO_SID`
+  
+- **Hugging Face**:
+  - `HUGGING_FACE_API_KEY` (for inference API)
+
+- **Google**:
+  - `GOOGLE_TRANSLATE_API_KEY` (for translation services)
+  - `GOOGLE_SEARCH_ENGINE_API_KEY` (for Google Custom Search Engine)
+
+- **Qdrant**:
+  - `QDRANT_AUTH_TOKEN` (for connecting to the Qdrant database)
+
+- **Firebase**:
+  - `FIREBASE_AUTH_TOKEN` (for Firebase authentication)
+.
+
+#### 4. Run the Application
+
+After setting up the environment and API tokens, run the Streamlit app for the `mediq.py` file (which contains the prescription scanner and navigation system):
+
+```bash
+streamlit run mediq.py
+```
+
+This will start a local server, and you can access the app in your browser.
+
+#### 5. Run the Qdrant Integration
+
+Next, run the `qdrant.py` script to start the Qdrant database integration. This will set up the connection for data storage, indexing, and retrieval:
+
+```bash
+python qdrant.py
+```
+
+---
+
+**Note:** Ensure that all required tokens and keys are set up correctly before running the scripts to avoid any issues with API connectivity.
+
+---
+
+Feel free to adjust or add any other specific setup instructions based on your repository’s configuration.
+
 🌐 **It's all about improving access to quality care**
