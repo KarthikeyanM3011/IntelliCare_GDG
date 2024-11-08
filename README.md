@@ -4,6 +4,8 @@
 Welcome to **Intellicare** by Team **Drastic Innovators**! Our project aims to enhance healthcare by enabling easy access and understanding of complex medical information through advanced AI models. 🩺💊
 
 ---
+## Here is the PowerPoint presentation link: [Drastic Innovators Presentation 🎤📊](https://www.canva.com/design/DAGFnm_ipec/6W4ataS90Qfzkt6rmyQgIQ/edit?utm_content=DAGFnm_ipec&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+---
 ## 📢 **Problem Statement**
 ---
 In today's world, many people face significant challenges in understanding the medical information contained in doctor prescriptions and medical reports. These documents, though critical for effective healthcare, are often difficult to interpret due to complex medical jargon and unclear explanations. This lack of clarity can result in various issues, including:
